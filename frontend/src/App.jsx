@@ -11,9 +11,12 @@ function App() {
   // fetch all todos from server
   useEffect(() => {
     const fetchTodos = async () => {
-      let allTodos = await fetch("http://localhost:3000/todos", {
-        method: "GET",
-      });
+      let allTodos = await fetch(
+        "https://todo-app-backend-ytc3.onrender.com/todos",
+        {
+          method: "GET",
+        }
+      );
       let data = await allTodos.json();
       setTodos(data);
     };
@@ -29,7 +32,7 @@ function App() {
   };
 
   const handleOnCLick = () => {
-    fetch("http://localhost:3000/todos", {
+    fetch("https://todo-app-backend-ytc3.onrender.com/todos", {
       method: "POST",
       body: JSON.stringify(createTodo),
       headers: {
@@ -47,7 +50,7 @@ function App() {
   };
 
   const handleOnDelete = (todoId) => {
-    fetch(`http://localhost:3000/todos/${todoId}`, {
+    fetch(`https://todo-app-backend-ytc3.onrender.com/todos/${todoId}`, {
       method: "DELETE",
     })
       .then((res) => {
