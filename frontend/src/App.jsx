@@ -11,7 +11,7 @@ function App() {
   // fetch all todos from server
   useEffect(() => {
     const fetchTodos = async () => {
-      let allTodos = await fetch("http://localhost:4000/todos", {
+      let allTodos = await fetch("http://localhost:3000/todos", {
         method: "GET",
       });
       let data = await allTodos.json();
@@ -29,7 +29,7 @@ function App() {
   };
 
   const handleOnCLick = () => {
-    fetch("http://localhost:4000/todos", {
+    fetch("http://localhost:3000/todos", {
       method: "POST",
       body: JSON.stringify(createTodo),
       headers: {
@@ -47,7 +47,7 @@ function App() {
   };
 
   const handleOnDelete = (todoId) => {
-    fetch(`http://localhost:4000/todos/${todoId}`, {
+    fetch(`http://localhost:3000/todos/${todoId}`, {
       method: "DELETE",
     })
       .then((res) => {
